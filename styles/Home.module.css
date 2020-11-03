@@ -1,0 +1,295 @@
+.main {
+  background-color: #131313;
+}
+
+.herocontainer {
+  min-height: 100vh;
+  background-color: #131313;
+  padding-top: 2rem;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.hi {
+  max-width: 400px;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.hi span {
+  color: #3aa4d1;
+}
+
+.mouse {
+  margin-top: 5rem;
+  animation: move 0.7s infinite alternate;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+
+.projects {
+  font-size: 8rem;
+  color: #1d1e21;
+  margin-left: 2rem;
+}
+
+.foundittitle {
+  text-align: center;
+  color: #3aa4d1;
+  margin-bottom: 3rem;
+}
+
+.projectscontainer {
+  width: 80%;
+  margin: auto;
+}
+
+.founditproject {
+  display: flex;
+  justify-content: space-around;
+}
+
+.founditbuttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.projectposter {
+  height: 358px;
+  width: 625px;
+}
+
+.button {
+  display: block;
+  width: 115px;
+  background: transparent;
+  border: 1px solid #3aa4d1;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: #3aa4d1;
+  border: 1px solid white;
+}
+
+.founditdescription {
+  color: white;
+  max-width: 90%;
+  margin: 2rem auto;
+}
+
+.aboutme {
+  font-size: 8rem;
+  color: #1d1e21;
+  padding-right: 2rem;
+  width: 100%;
+  text-align: right;
+}
+
+.about {
+  color: white;
+  max-width: 70%;
+  margin: auto;
+}
+
+.skills {
+  font-size: 8rem;
+  color: #1d1e21;
+  margin-left: 2rem;
+}
+
+.skillscontainer {
+  display: grid;
+  width: 90%;
+  margin: auto;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  background-color: #1d1e21;
+}
+
+.skill h1 {
+  font-size: 1rem;
+}
+
+.skillicon {
+  width: 65px;
+  height: 65px;
+}
+
+.more {
+  text-align: center;
+}
+
+.contact {
+  font-size: 8rem;
+  color: #1d1e21;
+  padding-right: 2rem;
+  width: 100%;
+  text-align: right;
+}
+
+.hireme {
+  color: white;
+  font-size: 3rem;
+  width: 100%;
+  text-align: center;
+}
+
+.contacts {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.social {
+  width: 60px;
+  height: 60px;
+  margin: 0 1rem;
+}
+
+.social:hover {
+  cursor: pointer;
+}
+
+.email {
+  color: white;
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 5rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .heroillu {
+    width: 200px;
+  }
+  .projects {
+    font-size: 5rem;
+  }
+  .projectposter {
+    height: 164px;
+    width: 285px;
+  }
+  .aboutme {
+    font-size: 5rem;
+  }
+  .skills {
+    font-size: 5rem;
+  }
+  .contact {
+    font-size: 5rem;
+  }
+  .hireme {
+    font-size: 2rem;
+  }
+  .email {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    flex-direction: column;
+  }
+  .hi {
+    width: 100%;
+    text-align: center;
+  }
+  .projects {
+    font-size: 3rem;
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .projectposter {
+    height: 164px;
+    width: 285px;
+  }
+  .aboutme {
+    font-size: 3rem;
+    padding-right: 0rem;
+    width: 100%;
+    text-align: center;
+  }
+  .skills {
+    font-size: 3rem;
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .contact {
+    font-size: 3rem;
+    padding-right: 0rem;
+    width: 100%;
+    text-align: center;
+  }
+  .hireme {
+    font-size: 1.5rem;
+  }
+  .email {
+    font-size: 1rem;
+  }
+  .founditproject {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .founditbuttons {
+    flex-direction: row;
+  }
+  .button {
+    margin: 1rem;
+    vertical-align: middle;
+  }
+}
+
+@media (min-width: 1500px) {
+  .hi {
+    font-size: 3rem;
+    max-width: 800px;
+  }
+  .founditproject {
+    justify-content: center;
+  }
+  .founditbuttons {
+    margin-left: 5rem;
+  }
+  .founditdescription {
+    font-size: 1.5rem;
+  }
+  .about {
+    font-size: 1.5rem;
+  }
+}
