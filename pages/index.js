@@ -36,7 +36,7 @@ export default function Home() {
 
           </div>
             <p className={styles.founditdescription}>Responsive Next.js web application that uses TMDb API to get the movie data. This app
-             presents the ability to search a title and get detail about the selected movie</p>
+             presents the ability to search a title and get details about the selected movie</p>
              <p className={styles.founditdescription}>Technologies used:</p>
              <p className={styles.founditdescription}>Html, Css, Next.js, Git, Node and Figma</p>
 
@@ -68,39 +68,39 @@ export default function Home() {
         <div className={styles.skillscontainer}>
           <div className={styles.skill}>
             <img src="./html.png" className={styles.skillicon} />
-            <h1>HTML</h1>
+            <h1 className={styles.skillname}>HTML</h1>
           </div>
           <div className={styles.skill}>
             <img src="./css.png" className={styles.skillicon} />
-            <h1>CSS</h1>
+            <h1 className={styles.skillname}>CSS</h1>
           </div>
           <div className={styles.skill}>
             <img src="./js.png" className={styles.skillicon} />
-            <h1>JAVASCRIPT</h1>
+            <h1 className={styles.skillname}>JAVASCRIPT</h1>
           </div>
           <div className={styles.skill}>
             <img src="./figma.png" className={styles.skillicon} />
-            <h1>FIGMA</h1>
+            <h1 className={styles.skillname}>FIGMA</h1>
           </div>
           <div className={styles.skill}>
             <img src="./github.png" className={styles.skillicon} />
-            <h1>GITHUB</h1>
+            <h1 className={styles.skillname}>GITHUB</h1>
           </div>
           <div className={styles.skill}>
             <img src="./ai.png" className={styles.skillicon} />
-            <h1>ILLUSTRATOR</h1>
+            <h1 className={styles.skillname}>ILLUSTRATOR</h1>
           </div>
           <div className={styles.skill}>
             <img src="./ps.png" className={styles.skillicon} />
-            <h1>PHOTOSHOP</h1>
+            <h1 className={styles.skillname}>PHOTOSHOP</h1>
           </div>
           <div className={styles.skill}>
             <img src="./node.png" className={styles.skillicon} />
-            <h1>NODE(NPM)</h1>
+            <h1 className={styles.skillname}>NODE(NPM)</h1>
           </div>
           <div className={styles.skill}>
             <img src="./git.png" className={styles.skillicon} />
-            <h1>GIT</h1>
+            <h1 className={styles.skillname}>GIT</h1>
           </div>
           <div className={styles.skill}>
             <h1 className={styles.more}>MORE COMING SOON...</h1>
