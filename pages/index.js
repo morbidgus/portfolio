@@ -38,7 +38,7 @@ export default function Home() {
             <p className={styles.founditdescription}>Responsive Next.js web application that uses TMDb API to get the movie data. This app
              presents the ability to search a title and get details about the selected movie</p>
              <p className={styles.founditdescription}>Technologies used:</p>
-             <p className={styles.founditdescription}>Html, Css, Next.js, Git, Node and Figma</p>
+             <p className={styles.founditdescription}>Html, Css, Next.js, Git and Figma</p>
 
 
 
@@ -93,10 +93,6 @@ export default function Home() {
           <div className={styles.skill}>
             <img src="./ps.png" className={styles.skillicon} />
             <h1 className={styles.skillname}>PHOTOSHOP</h1>
-          </div>
-          <div className={styles.skill}>
-            <img src="./node.png" className={styles.skillicon} />
-            <h1 className={styles.skillname}>NODE(NPM)</h1>
           </div>
           <div className={styles.skill}>
             <img src="./git.png" className={styles.skillicon} />
