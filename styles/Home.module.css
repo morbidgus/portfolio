@@ -1,5 +1,6 @@
 .main {
   background-color: #131313;
+  width: 100%;
 }
 
 .herocontainer {
@@ -17,6 +18,10 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.heromaincard{
+  width: 30rem;
 }
 
 .hi {
@@ -197,8 +202,8 @@
 }
 
 @media (max-width: 700px) {
-  .heroillu {
-    width: 200px;
+  .heromaincard{
+    width: 100%;
   }
   .projects {
     font-size: 5rem;
