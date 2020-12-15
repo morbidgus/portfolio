@@ -1,17 +1,41 @@
 .main {
-  background-color: #131313;
+  background-color: #171941;
   width: 100%;
+}
+
+.menu {
+  margin: 0;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 1rem 2rem 0 0;
+}
+
+.navitem {
+  list-style: none;
+  margin: 1rem;
+  color: #d1d1d1;
+  cursor: pointer;
+}
+
+.navbar {
+  background: transparent;
+  height: 80px;
+  background-color: #171941;
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 
 .herocontainer {
   min-height: 100vh;
-  background-color: #131313;
-  padding-top: 2rem;
+  background-color: #171941;
   width: 90%;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .hero {
@@ -20,7 +44,11 @@
   justify-content: space-around;
 }
 
-.heromaincard{
+.heroillu {
+  margin-left: 2rem;
+}
+
+.heromaincard {
   width: 30rem;
 }
 
@@ -34,9 +62,13 @@
   color: #3aa4d1;
 }
 
-.mouse {
+.scroll {
   margin-top: 5rem;
-  animation: move 0.7s infinite alternate;
+  cursor: pointer;
+}
+
+.scroll:hover {
+  animation: move 0.5s infinite alternate;
 }
 
 @keyframes move {
@@ -44,112 +76,162 @@
     transform: translateY(0px);
   }
   to {
-    transform: translateY(20px);
+    transform: translateY(-5px);
   }
 }
 
 .projects {
   font-size: 8rem;
-  color: #1d1e21;
-  margin-left: 2rem;
+  color: #232653;
+  text-align: center;
 }
 
 .foundittitle {
   text-align: center;
-  color: #3aa4d1;
-  margin-bottom: 3rem;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
 }
 
 .projectscontainer {
   width: 80%;
   margin: auto;
 }
+.projectcontentcontainer {
+  display: flex;
+  margin-bottom: 7rem;
+}
 
 .founditproject {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 3rem;
 }
-
+.projectposter {
+  height: 266px;
+  width: 463px;
+}
 .founditbuttons {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
 
-.projectposter {
-  height: 358px;
-  width: 625px;
-}
-
-.button {
+.buttoncode {
   display: block;
   width: 115px;
   background: transparent;
-  border: 1px solid #3aa4d1;
+  border: 1px solid #1d8cf8;
+  border-radius: 10px;
   padding: 10px;
   text-align: center;
-  color: white;
-  font-size: 1rem;
+  color: #1d8cf8;
+  font-size: 0.7rem;
+  margin-left: 1.5rem;
 }
 
-.button:hover {
-  cursor: pointer;
-  color: #3aa4d1;
-  border: 1px solid white;
+.buttonproject {
+  display: block;
+  width: 115px;
+  background: transparent;
+  border: 1px solid #ff8d72;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  color: #ff8d72;
+  font-size: 0.7rem;
+}
+
+.buttonproject:hover {
+  animation: move 0.5s infinite alternate;
+}
+
+.buttoncode:hover {
+  animation: move 0.5s infinite alternate;
 }
 
 .founditdescription {
+  color: #bebebe;
+}
+.foundittech {
   color: white;
-  max-width: 90%;
-  margin: 2rem auto;
+  margin: 0;
+}
+.foundittechs {
+  color: white;
+  margin: 0 0 0.8rem 0;
 }
 
 .aboutme {
   font-size: 8rem;
-  color: #1d1e21;
-  padding-right: 2rem;
+  color: #232653;
   width: 100%;
-  text-align: right;
+  text-align: center;
 }
 
 .about {
   color: white;
+  font-size: 1.5rem;
   max-width: 70%;
   margin: auto;
+  text-align: center;
+}
+
+.skillssection {
+  display: flex;
+  justify-content: center;
 }
 
 .skills {
   font-size: 8rem;
-  color: #1d1e21;
-  margin-left: 2rem;
+  color: #232653;
+  text-align: center;
 }
 
-.skillscontainer {
-  display: grid;
-  width: 90%;
-  margin: auto;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 20px;
-}
-
-.skill {
+.devskillscontainer {
+  position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  justify-self: center;
   align-items: center;
-  width: 200px;
-  height: 200px;
-  background-color: #1d1e21;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(31, 34, 81, 1),
+    rgba(31, 34, 81, 0.3)
+  );
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+}
+.designskillscontainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(31, 34, 81, 1),
+    rgba(31, 34, 81, 0.3)
+  );
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  margin-left: 3rem;
 }
 
-.skill h1 {
-  font-size: 1rem;
+.devskills {
+  text-align: center;
+  margin: 1rem 0;
+  padding: 0 2rem;
 }
 
-.skillicon {
-  width: 65px;
-  height: 65px;
+.devskills li {
+  list-style: none;
+  margin-bottom: 0.5rem;
+  color: #9a9a9a;
+}
+
+.codeicon {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .more {
@@ -159,10 +241,9 @@
 
 .contact {
   font-size: 8rem;
-  color: #1d1e21;
-  padding-right: 2rem;
+  color: #232653;
   width: 100%;
-  text-align: right;
+  text-align: center;
 }
 
 .hireme {
@@ -179,18 +260,19 @@
 }
 
 .social {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   margin: 0 1rem;
 }
 
 .social:hover {
   cursor: pointer;
+  animation: move 0.5s infinite alternate;
 }
 
 .email {
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   width: 100%;
   text-align: center;
   padding-bottom: 5rem;
@@ -201,19 +283,22 @@
   color: white;
 }
 
-@media (max-width: 700px) {
-  .heromaincard{
+@media (max-width: 900px) {
+  .navbar{
+    display: none;
+  }
+  .heromaincard {
     width: 100%;
   }
   .projects {
     font-size: 5rem;
   }
-  .projectposter {
-    height: 164px;
-    width: 285px;
-  }
+
   .aboutme {
     font-size: 5rem;
+  }
+  .about{
+    font-size: 1rem;
   }
   .skills {
     font-size: 5rem;
@@ -227,9 +312,37 @@
   .email {
     font-size: 1.5rem;
   }
+  .projectcontentcontainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .skillssection {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .devskillscontainer {
+    flex-direction: column;
+  }
+  .devskills {
+    margin: 0;
+  }
+  .designskillscontainer {
+    margin: 3rem 0;
+  }
+  .founditproject{
+    width: 70%;
+    margin: 0;
+  }
+  .devskillscontainer{
+    padding: 3rem 1rem;
+  }
+  .designskillscontainer{
+    padding: 3rem 1rem;
+  }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .hero {
     flex-direction: column;
   }
@@ -283,18 +396,15 @@
     margin: 1rem;
     vertical-align: middle;
   }
+  .founditproject{
+    text-align: center;
+  }
 }
 
 @media (min-width: 1500px) {
   .hi {
     font-size: 3rem;
     max-width: 800px;
-  }
-  .founditproject {
-    justify-content: center;
-  }
-  .founditbuttons {
-    margin-left: 5rem;
   }
   .founditdescription {
     font-size: 1.5rem;

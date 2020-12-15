@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import  gsap  from 'gsap'
-import { TimelineMax} from "gsap";
-import { useRef, useEffect } from 'react'
-
+import { useRef, useEffect, useState } from 'react'
+import { Link } from "react-scroll";
+import { saveAs } from 'file-saver';
 
 export default function Home() {
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const [resume, setResume] = useState(false)
   const tl = gsap.timeline({defaults:{duration: 0.1, ease: "Back.easeOut", opacity: 0}})
   let cardbg = useRef();
   let dot1 = useRef();
@@ -71,7 +73,17 @@ export default function Home() {
       .from(blips19.current, {scaleX:0})
       .from(blips20.current, {scaleX:0})
       .from(blips21.current, {scaleX:0})
-  }, [])
+  }, []);
+
+  const downloadEnglish =() =>{
+    const FileSaver = require('file-saver');
+    FileSaver.saveAs("../englishResume.pdf", "Gustavo Madrid Frontend Dev Resume.pdf");
+  }
+
+  const downloadSpanish =() =>{
+    const FileSaver = require('file-saver');
+    FileSaver.saveAs("../spanishResume.pdf", "Gustavo Madrid Frontend Dev Curriculum.pdf");
+  }
 
   return (
     <div className={styles.container}>
@@ -84,12 +96,121 @@ export default function Home() {
 
       <main className={styles.main}>
 
+        <nav className={styles.navbar}>
+          <ul className={styles.menu}>
+            <Link
+              activeClass="active"
+              to="projects"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className={styles.navitem}
+            >Projects</Link>
+            <Link
+              activeClass="active"
+              to="skills"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className={styles.navitem}
+            >Skills</Link>
+            <Link
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className={styles.navitem}
+            >About</Link>            
+            <Link
+              activeClass="active"
+              to="contact"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className={styles.navitem}
+            >Contact</Link>
+            <li className={styles.navitem} onClick={()=> setResume(!resume)}>Resume</li>
+            <ul className={`${resume ? 'showresume' : 'hideresume'} resume-container`}>
+              <li className="resume-eng" onClick={downloadEnglish}>English</li>
+              <li className="resume-spa" onClick={downloadSpanish}>Spanish</li>
+            </ul>
+          </ul>
+        </nav>
+
+        <nav className="mobilebar">
+          <button className={`${mobileMenu ? 'hidetoggle' : 'toggle'}`} onClick={()=> setMobileMenu(true)}>
+            <img src="../menu.svg" className="menu" />
+          </button>
+          <aside className={`${mobileMenu ? 'show' : 'hide'} sidebar`}>
+            <ul className="links">
+              <Link
+                activeClass="active"
+                to="projects"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className={styles.navitem}
+                onClick={() => setMobileMenu(false)}
+              >Projects</Link>
+              <Link
+                activeClass="active"
+                to="skills"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className={styles.navitem}
+                onClick={() => setMobileMenu(false)}
+              >Skills</Link>
+              <Link
+                activeClass="active"
+                to="about"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className={styles.navitem}
+                onClick={() => setMobileMenu(false)}
+              >About</Link>            
+              <Link
+                activeClass="active"
+                to="contact"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className={styles.navitem}
+                onClick={() => setMobileMenu(false)}
+              >Contact</Link>
+              <li className={styles.navitem} onClick={() => setResume(!resume)}>Resume</li>
+              <ul className={`${resume ? 'showresume' : 'hideresume'} mobile-resume-container`}>
+                <li className="resume-eng" onClick={downloadEnglish}>English</li>
+                <li className="resume-spa" onClick={downloadSpanish}>Spanish</li>
+              </ul>
+            </ul>
+            <button
+            type="button"
+            className="close-btn"
+            onClick={() => setMobileMenu(false)}
+          >
+            &times;
+          </button>
+          </aside>
+
+        </nav>
+
         <div className={styles.herocontainer}>
           <div className={styles.hero}>
             <h2 className={styles.hi}>Hi! I'm <span>Gustavo</span>, Front-End Web Developer based in Argentina.</h2>
-            <div className={styles.heroilli}>
+            <div className={styles.heroillu}>
               <svg className={styles.heromaincard} viewBox="0 0 516 369" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path ref={backshadow} d="M242.925 354.436C129.218 345.787 -6.38267 257.724 0.520976 167.049C7.42462 76.3738 138.756 -8.03713 252.463 0.611887C366.17 9.2609 431.623 178.717 424.72 269.393C417.816 360.068 356.633 363.085 242.925 354.436Z" fill="#1D1E21"/>
+                <path ref={backshadow} d="M242.925 354.436C129.218 345.787 -6.38267 257.724 0.520976 167.049C7.42462 76.3738 138.756 -8.03713 252.463 0.611887C366.17 9.2609 431.623 178.717 424.72 269.393C417.816 360.068 356.633 363.085 242.925 354.436Z" fill="#1c1e45"/>
                 <path ref={shadow} d="M252.462 369C383.552 369 489.822 362.492 489.822 354.465C489.822 346.438 383.552 339.93 252.462 339.93C121.371 339.93 15.1017 346.438 15.1017 354.465C15.1017 362.492 121.371 369 252.462 369Z" fill="#3F3D56"/>
                 <path ref={innershadow} opacity="0.1" d="M252.462 363.842C364.122 363.842 454.64 359.539 454.64 354.231C454.64 348.922 364.122 344.619 252.462 344.619C140.802 344.619 50.2835 348.922 50.2835 354.231C50.2835 359.539 140.802 363.842 252.462 363.842Z" fill="black"/>
                 <path ref={cardbg} d="M432.124 75.9568H79.3672V352.59H432.124V75.9568Z" fill="#3F3D56"/>
@@ -123,101 +244,115 @@ export default function Home() {
               </svg>
             </div>
           </div>
+          <Link
+              activeClass="active"
+              to="projects"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              <img src="../scroll.svg" className={styles.scroll} />
+            </Link>
 
-          <img src="../mouse.svg" className={styles.mouse} />
+          
         
         </div>
 
-        <h1 className={styles.projects}>&lt;projects&gt;</h1>
+        <h1 className={styles.projects} id="projects">&lt;projects&gt;</h1>
 
-        <div className={styles.projectscontainer}>
-          <h1 className={styles.foundittitle}>Found it!</h1>
-          <div className={styles.founditproject}>
+        <div className={styles.projectscontainer} >
+          <div className={styles.projectcontentcontainer}>
             <img src="../foundit.png" className={styles.projectposter}/>
-            <div className={styles.founditbuttons}>
-              <a href="https://github.com/morbidgus/foundit" rel="noreferrer" target="_blank" className={styles.button}>View code</a>
-              <a href="https://foundit.vercel.app/" rel="noreferrer" target="_blank" className={styles.button}>View project</a>
+            <div className={styles.founditproject}>
+              <h1 className={styles.foundittitle}>Found it!</h1>
+              <p className={styles.founditdescription}>Responsive Next.js web application that uses TMDb API to get the movie data. This app
+              presents the ability to search a title and get details about the selected movie</p>
+              <p className={styles.foundittech}>Technologies used:</p>
+              <p className={styles.foundittechs}>Html, Css, Next.js and Figma</p>
+              <div className={styles.founditbuttons}>
+                <a href="https://foundit.vercel.app/" rel="noreferrer" target="_blank" className={styles.buttonproject}>View project</a>
+                <a href="https://github.com/morbidgus/foundit" rel="noreferrer" target="_blank" className={styles.buttoncode}>View code</a>
+              </div>
+
             </div>
-
           </div>
-            <p className={styles.founditdescription}>Responsive Next.js web application that uses TMDb API to get the movie data. This app
-             presents the ability to search a title and get details about the selected movie</p>
-             <p className={styles.founditdescription}>Technologies used:</p>
-             <p className={styles.founditdescription}>Html, Css, Next.js, Git and Figma</p>
 
-
-
-          <h1 className={styles.foundittitle}>Athena</h1>
-          <div className={styles.founditproject}>
+          <div className={styles.projectcontentcontainer}>
             <img src="../athena.png" className={styles.projectposter}/>
-            <div className={styles.founditbuttons}>
-            <a href="https://github.com/morbidgus/Athena" rel="noreferrer" target="_blank" className={styles.button}>View code</a>
-            <a href="https://pedantic-yonath-561489.netlify.app/" rel="noreferrer" target="_blank" className={styles.button}>View project</a>
-            </div>
-
-          </div>
-            <p className={styles.founditdescription}>Responsive Vanilla Js web application. This app presents the ability to access a collection of
+            <div className={styles.founditproject}>
+              <h1 className={styles.foundittitle}>Athena</h1>
+              <p className={styles.founditdescription}>Responsive Vanilla Js web application. This app presents the ability to access a collection of
              amazing free resources for web developers.</p>
-             <p className={styles.founditdescription}>Technologies used:</p>
-             <p className={styles.founditdescription}>Html, Css, Vanilla JavaScript, Git and Figma</p>
+              <p className={styles.foundittech}>Technologies used:</p>
+              <p className={styles.foundittechs}>Html, Css, Vanilla JavaScript and Figma</p>
+              <div className={styles.founditbuttons}>
+                <a href="https://pedantic-yonath-561489.netlify.app/" rel="noreferrer" target="_blank" className={styles.buttonproject}>View project</a>
+                <a href="https://github.com/morbidgus/Athena" rel="noreferrer" target="_blank" className={styles.buttoncode}>View code</a>
+              </div>
+
+            </div>
+          </div>
         </div>
 
-        <h1 className={styles.aboutme}>&lt;about me&gt;</h1>
+        <h1 className={styles.skills} id="skills">&lt;skills&gt;</h1>
+        <div className={styles.skillssection} >
 
-        <p className={styles.about}>Hi! My name is Gustavo Madrid. I'm a 23 y/o living in Buenos Aires, Argentina. I've discovered
-          web development in 2019 and been learning it by myself ever since. I believe anything can be overcome with persistence and dedication. I'm always up for learning new things!
-        </p>
 
-        <h1 className={styles.skills}>&lt;skills&gt;</h1>
+        <div className={styles.devskillscontainer}>
+          <img src="../code.svg" className={styles.codeicon}/>
+          <ul className={styles.devskills}>
+            <li>Javascript</li>
+            <li>React</li>
+            <li>Next.js</li>
+            <li>Redux(learning)</li>
+            <li>HTML5</li>
+            <li>CSS3</li>
+          </ul>
+          <ul className={styles.devskills}>
+            <li>Bootstrap</li>
+            <li>Tailwind</li>
+            <li>Responsive design</li>
+            <li>Command line</li>
+            <li>Testing/Debugging</li>
+            <li>Version control/GIT</li>
+          </ul>
+        </div>
+        <div className={styles.designskillscontainer}>
+          <img src="../designer.svg" className={styles.codeicon}/>
+          <ul className={styles.devskills}>
+            <li>Figma</li>
+            <li>Adobe Illustrator</li>
+            <li>Adobe Photoshop</li>
+            <li>UX/UI Design</li>
+            <li>Wireframing</li>
+            <li>Prototyping</li>
+          </ul>
+        </div>
 
-        <div className={styles.skillscontainer}>
-          <div className={styles.skill}>
-            <img src="./html.png" className={styles.skillicon} />
-            <h1 className={styles.skillname}>HTML</h1>
-          </div>
-          <div className={styles.skill}>
-            <img src="./css.png" className={styles.skillicon} />
-            <h1 className={styles.skillname}>CSS</h1>
-          </div>
-          <div className={styles.skill}>
-            <img src="./js.png" className={styles.skillicon} />
-            <h1 className={styles.skillname}>JAVASCRIPT</h1>
-          </div>
-          <div className={styles.skill}>
-            <img src="./figma.png" className={styles.skillicon} />
-            <h1 className={styles.skillname}>FIGMA</h1>
-          </div>
-          <div className={styles.skill}>
-            <img src="./github.png" className={styles.skillicon} />
-            <h1 className={styles.skillname}>GITHUB</h1>
-          </div>
-          <div className={styles.skill}>
-            <img src="./ai.png" className={styles.skillicon} />
-            <h1 className={styles.skillname}>ILLUSTRATOR</h1>
-          </div>
-          <div className={styles.skill}>
-            <img src="./ps.png" className={styles.skillicon} />
-            <h1 className={styles.skillname}>PHOTOSHOP</h1>
-          </div>
-          <div className={styles.skill}>
-            <img src="./git.png" className={styles.skillicon} />
-            <h1 className={styles.skillname}>GIT</h1>
-          </div>
-          <div className={styles.skill}>
-            <h1 className={styles.more}>MORE COMING SOON...</h1>
-          </div>
-        </div>  
+        </div>
 
-        <h1 className={styles.contact}>&lt;contact&gt;</h1>
+        <div id="about">
+          <h1 className={styles.aboutme}>&lt;about me&gt;</h1>
+          <p className={styles.about}>Hi! My name is Gustavo Madrid. I'm a 23 y/o living in Buenos Aires, Argentina. I've discovered
+            web development in 2019 and been learning it by myself ever since. I believe anything can be overcome with persistence and dedication. I'm always up for learning new things!
+          </p>
+        </div>
+
+
+        <h1 className={styles.contact} id="contact">&lt;contact&gt;</h1>
 
         <p className={styles.hireme}>Lets build something great</p>
 
-        <div className={styles.contacts}>
+        <div className={styles.contacts} >
           <a href="https://github.com/morbidgus" target="_blank">
-          <img src="./githublack.svg" className={styles.social}/>
+          <img src="./github.svg" className={styles.social}/>
           </a>
           <a href="https://www.instagram.com/guuss_m/" target="_blank">
           <img src="./instagram.svg" className={styles.social}/>
+          </a>
+          <a href="https://linkedin.com/in/gustavo-madrid-83a844201" target="_blank">
+          <img src="./linkedin.svg" className={styles.social}/>
           </a>
         
         </div>
@@ -225,6 +360,118 @@ export default function Home() {
         <p className={styles.email}>madridgustavo23@gmail.com</p>   
           
       </main>
+      <style jsx>
+        {`
+          .links{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 3rem;
+            padding-left: 0;
+          }
+          .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            transition: all 0.3s linear;
+            z-index: 999;
+            backdrop-filter: blur(15px);
+          }
+          .mobilebar{
+            display:flex;
+            align-items: center;
+            justify-content: flex-end;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            z-index: 100;
+            background-color: #171941;
+          }
+          .show{
+            transform: translate(0);
+          }
+          .hide{
+            transform: translate(100%);
+          }
+          .menu{
+            width: 2rem;
+          }
+          .toggle{
+            background: transparent;
+            border: none;
+            margin-right: 0.5rem;
+            cursor: pointer;
+          }
+          .close-btn{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+          }
+          .close-btn:hover{
+            color: red;
+          }
+          .hidetoggle{
+            display: none;
+          }
+          .showresume{
+            display: block;
+          }
+          .hideresume{
+            display: none;
+          }
+          .resume-eng{
+            color: white;
+            width: 100%;           
+            list-style: none;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.8rem;
+          }
+          .resume-spa{
+            color: white;
+            width: 100%;           
+            list-style: none;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+          }
+          .resume-container{
+            background-color: transparent;
+            backdrop-filter: blur(15px);
+            border-radius: 0.5rem;
+            border: 1px solid #3f3d56;
+            padding: 1rem;
+            position: absolute;
+            top: 60px;
+          }
+          .mobile-resume-container{
+            padding: 0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #3f3d56;
+          }
+          @media (min-width: 900px){
+            .mobilebar{
+              display: none;
+            }
+          }
+        `}
+        
+      </style>
     </div>
   )
 }
